@@ -1,0 +1,24 @@
+<div class="content">
+    <div class="signup-form">
+        <h2 id="header">Sign Up</h2>
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="form-filler">
+            <div class="input-div">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" formControlName="username" required />
+            </div>
+            <div class="input-div">
+                <label for="password">Password:</label>
+                <input type="text" id="password" name="password"  formControlName="password" required="true" />
+            </div>
+            <div class="input-div">
+                <label for="role">Role</label>
+                <select (ngModel)="role" name="role" id="role" formControlName="role">
+                    <option value="student">Student</option>
+                    <option value="journalist">Journalist</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+</div>

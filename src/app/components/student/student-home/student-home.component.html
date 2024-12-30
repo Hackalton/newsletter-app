@@ -1,0 +1,31 @@
+<div class="nav">
+    <nav class="nav-bar">
+        <ul>
+            <li>
+                Student Id
+            </li>
+            <li>
+                Student name
+            </li>
+        </ul>
+    </nav>
+</div>
+<div>
+    <div>
+        <ul *ngFor="let item of allNewsletters">
+            <li>{{item.content}}</li>
+        </ul>
+    </div>
+    <table>
+        <thead>
+            <th>Title</th>
+            <th>Content</th>
+        </thead>
+        <tbody *ngFor="let item of allNewsletters">
+            <tr>
+                <td>{{item.title}}</td>
+                <td>{{item.content}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

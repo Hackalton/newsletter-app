@@ -1,0 +1,54 @@
+.content{
+    height: 200vh;
+    color: rgb(75, 75, 75);
+
+    --s: 25px; /* control the size*/
+    --c1: #b2b2b2;
+    --c2: #ffffff;
+    --c3: #d9d9d9;
+    
+    --_g: var(--c3) 0 120deg,#0000 0;
+    background:
+        conic-gradient(from -60deg at 50% calc(100%/3),var(--_g)),
+        conic-gradient(from 120deg at 50% calc(200%/3),var(--_g)),
+        conic-gradient(from  60deg at calc(200%/3),var(--c3) 60deg,var(--c2) 0 120deg,#0000 0),
+        conic-gradient(from 180deg at calc(100%/3),var(--c1) 60deg,var(--_g)),
+        linear-gradient(90deg,var(--c1)   calc(100%/6),var(--c2) 0 50%,
+                            var(--c1) 0 calc(500%/6),var(--c2) 0);
+    background-size: calc(1.732*var(--s)) var(--s);
+    justify-content: center;
+    text-align: center;
+    padding-top: 13rem;
+
+}
+.login-form{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    background-color: #b2b2b2;
+    width: 60%;
+    padding: 4rem 0;
+    border-style: double;
+    border: solid rgb(65, 63, 63) 2px;
+}
+
+.form-filler{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.2rem;
+    width: 60%;
+    text-align: center;
+    justify-content: center;
+}
+.input-div{
+    margin: auto;
+    text-align: center;
+}
+.input-div, input{
+    width: 60%;
+    text-align: center;
+    justify-content: center;
+}
