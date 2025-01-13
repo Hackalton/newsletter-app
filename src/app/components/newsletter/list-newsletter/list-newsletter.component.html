@@ -1,0 +1,20 @@
+<div class="hero">
+    <div class="hero">
+        <div class="content">
+            <h2>TITLES</h2>
+            <ul *ngFor="let item of allNewsletters">
+                <li>
+                    <span  class="title" (click)="openModal(item)">{{item.title}}</span>
+                <div class="modal" [ngClass]="{'show': isModalVisible}" (click)="closeModal()">
+                    <div class="modal-content" (click)="$event.stopPropagation()">
+                    <span class="close" (click)="closeModal()">&times;</span>
+                    <h2 class="title">{{ modalData?.title }}</h2>
+                    <p>{{ modalData?.content }}</p>
+                    <small class="author">Author: {{item.author}}</small>
+                    </div>
+                </div>
+                </li>
+    
+            </ul>
+    </div>
+</div>

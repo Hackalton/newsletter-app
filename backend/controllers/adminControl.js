@@ -1,4 +1,4 @@
-const userModel = require('../models/user');
+const userModel = require('../models/admin');
 
 module.exports = {
     create: (req, res)=>{
@@ -10,7 +10,8 @@ module.exports = {
         
         admin.save()
         .then(result =>{
-            if(!result) res.json({success: false, result: 'error saving admin'})
+            if(!result) res.json({success: false, result: 'error saving admin'});
+            res.json({success: true, result: result});
         })
         .catch(err =>{
             res.json({success: false, result: 'err saving admin', err})
@@ -21,11 +22,21 @@ module.exports = {
         userModel.find()
             .then(admin =>{
                 if(!admin) res.json({success: false, result: 'no admin found!'});
-                res.json({success: false, result: admin})
+                res.json({success: true, result: admin})
             })
         .catch(err=>{
             res.json({success: false, result: err})
         })
+    },
+    get: (req, res)=>{
+        userModel.findOne(req.params._id)
+            .then(admin =>{
+                if(!admin) res.json({success: false, result: 'admin with this id is not found!'});
+                res.json({success: true, result: admin})
+            })
+            .catch(err=>{
+            res.json({success: false, result: err})
+            })
     },
     update: (req, res)=>{
         userModel.updateOne({_id: req.body._id}, req.body)

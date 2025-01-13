@@ -1,4 +1,4 @@
-const userModel = require('../models/user');
+const userModel = require('../models/journalist');
 
 module.exports ={
     create: (req, res)=>{
@@ -12,6 +12,7 @@ module.exports ={
         
         .then(
             result =>{
+                if(!result) return res.json({success: false, result: 'error saving journalist'})
                 res.json({success: true, result: result})
             }
         )
@@ -23,7 +24,7 @@ module.exports ={
         userModel.updateOne({_id: req.body._id}, req.body)
             .then(journalist =>{
                 if(!journalist){res.json({success: false, result: 'Journalist not found!'})};
-                res.json({journalist})
+                res.json({success: true, result: journalist});
             })
             .catch(err=>{
                 res.json({success: false, result: err})
@@ -37,6 +38,16 @@ module.exports ={
             })
             .catch(err=>{
                 res.json({success: false, result: err})
+            })
+    },
+    get: (req, res)=>{
+        userModel.findOne(req.params._id)
+            .then(journalist =>{
+                if(!journalist) res.json({success: false, result: 'journalist with this id is not found!'});
+                res.json({success: true, result: journalist})
+            })
+            .catch(err=>{
+            res.json({success: false, result: err})
             })
     },
     delete: (req, res)=>{

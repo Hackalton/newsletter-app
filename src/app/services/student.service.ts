@@ -9,19 +9,31 @@ import { Observable } from 'rxjs';
 export class StudentService {
 
   allStudent: Student[] =[];
-  studentUrl ='';
+  studentUrl ='http://localhost:3000/api/student'
+  newsletterUrl ='http://localhost:3000/api/newsletter'
   constructor(private http: HttpClient) { }
 
-  getJournalists(): Observable<any>{
+  getStudents(): Observable<any>{
     return this.http.get<any>(`${this.studentUrl}/retrieve`);
   }
-  deleteJournalist(_id: string): Observable<any>{
-    return this.http.delete<any>(`${this.studentUrl}/delete/${_id}`);
+  getStudentById(_id: any): Observable<any>{
+    return this.http.get<any>(`${this.studentUrl}/${_id}`)  //define this in the backend
   }
-  updateJournalist(_id: string): Observable<any>{
-    return this.http.put<any>(`${this.studentUrl}/update`, _id);
+  deleteStudent(_id: string): Observable<any>{
+    return this.http.delete<any>(`${this.studentUrl}/${_id}`);
   }
-  createAdmin(student: Student): Observable<any>{
+  updateStudent(_id: string, student: any): Observable<any>{
+    return this.http.put<any>(`${this.studentUrl}/${_id}`, student);
+  }
+  createStudent(student: any): Observable<any>{
     return this.http.post<any>(`${this.studentUrl}/create`, student);
+  }
+
+  //newsletters
+  getNewsletters(): Observable<any[]>{
+    return this.http.get<any[]>(`${this.newsletterUrl}/retrieve`);
+  }
+  getNewsletter(_id: string): Observable<any>{
+    return this.http.get<any>(`${this.newsletterUrl}/${_id}`);
   }
 }

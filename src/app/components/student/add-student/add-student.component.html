@@ -1,0 +1,26 @@
+<div class="hero">
+    <div class="card-header">
+        <h3 class="card-title">Student Register</h3>
+    </div>
+    <div class="content">
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="form-filler">
+            <div class="input-div">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" formControlName="username" required />
+            </div>
+            <div class="input-div">
+                <label for="password">Password:</label>
+                <input type="text" id="password" name="password"  formControlName="password" required="true" />
+            </div>
+            <div class="input-div">
+                <label for="role">Role</label>
+                <select name="role" id="role" formControlName="role">
+                    <option value="student">Student</option>
+                </select>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</div>

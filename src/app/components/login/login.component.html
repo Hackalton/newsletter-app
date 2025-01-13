@@ -11,6 +11,14 @@
                 <label for="password">Password</label>
                 <input type="text" id="password" formControlName="password" name="password" required/>
             </div>
+            <div class="input-div">
+                <label for="role">Role</label>
+                <select name="role" id="role" formControlName="role">
+                    <option value="student">Student</option>
+                    <option value="journalist">Journalist</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
             <button id="submit-btn" type="submit">Login</button>
         </form>
         <h5>

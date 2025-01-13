@@ -13,9 +13,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './signup.component.css'
 })
 export class SignupComponent implements OnInit{
-  username: string = '';
-  password: string = '';
-  role: string = '';
   signupUrl = 'http://localhost:3000/api/auth/signup';
 
   signupForm!:FormGroup;
@@ -25,7 +22,7 @@ export class SignupComponent implements OnInit{
     this.signupForm = this.fb.group({
       username: ['', [Validators.required]],
       password: ['', [Validators.required]],
-      role: ['student', Validators.required]
+      role: ['', Validators.required]
     });
   }
 
@@ -46,9 +43,24 @@ export class SignupComponent implements OnInit{
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(signupData)
+      
     })
     .then(
-      response => response.json()
+      response =>{
+        //redirection
+      if(formData.role ==='admin'){
+        this.router.navigate(['/admin-home']);
+      }else if(formData.role==='journalist'){
+        this.router.navigate(['/journalist-home']);
+      }
+      else if(formData.role ==='student'){
+        this.router.navigate(['/student-home'])
+      }
+      else{
+        this.router.navigate(['/login'])
+      } 
+        response.json();
+      } 
     ).catch(error => console.log(error))
   }
 }

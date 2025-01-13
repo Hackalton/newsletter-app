@@ -1,0 +1,21 @@
+<div class="hero">
+    <table class="studentListTable">
+            <tr>
+                <td>STUDENT ID</td>
+                <td>USERNAME</td>
+                <td>ROLE</td>
+                <td>ACTION</td>
+            </tr>
+        <tbody *ngFor="let item of allStudents">
+                <tr>
+                    <td>{{item._id}}</td>
+                    <td>{{item.username}}</td>
+                    <td>{{item.role}}</td>
+                    <td>
+                        <span><i class="fa fa-trash" (click)="deleteStudent(item.id)"></i></span>
+                        <span><a routerLink="/updateStudent/{{item._id}}"><i class="fa fa-edit"></i></a></span>
+                    </td>
+                </tr>
+        </tbody>
+    </table>
+</div>

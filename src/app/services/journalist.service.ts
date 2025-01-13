@@ -10,8 +10,7 @@ import { Newsletter } from '../models/newsletter';
 })
 export class JournalistService {
 
-  allJournalist: Journalist[] =[];
-  newsletterUrl = 'http://locahost:3000/api/newsletters';
+  newsletterUrl = 'http://locahost:3000/api/newsletter';
   journalistUrl = 'http://locahost:3000/api/journalist';
   constructor(private http: HttpClient) { }
 
@@ -19,7 +18,7 @@ export class JournalistService {
     return this.http.get<any>(`${this.journalistUrl}/retrieve`);
   }
   deleteJournalist(_id: string): Observable<any>{
-    return this.http.delete<any>(`${this.journalistUrl}/delete/${_id}`);
+    return this.http.delete<any>(`${this.journalistUrl}/${_id}`);
   }
   updateJournalist(_id: string): Observable<any>{
     return this.http.put<any>(`${this.journalistUrl}/update`, _id);
@@ -28,7 +27,23 @@ export class JournalistService {
     return this.http.post<any>(`${this.journalistUrl}/create`, journalist);
   }
 
-  getNewsletters(): Observable<any>{
-    return this.http.get<Newsletter>(`${this.newsletterUrl}/retrieve`);
+    //the posts/newsletters
+
+  
+  createNewsletter(newsletter: Newsletter): Observable<any>{
+    return this.http.post<any>(`${this.newsletterUrl}/create`, newsletter);
   }
+  getNewsletters(): Observable<any[]>{
+    return this.http.get<any[]>(`${this.newsletterUrl}/retrieve`);
+  }
+  getNewsletter(_id: string): Observable<any>{
+    return this.http.get<any>(`${this.newsletterUrl}/${_id}`);
+  }
+  updateNewsletter(_id: string, newsletter: any): Observable<any>{
+    return this.http.put<any>(`${this.newsletterUrl}/update/${_id}`, newsletter);
+  }
+  deleteNewsletter(_id: string): Observable<any>{
+    return this.http.delete<any>(`${this.newsletterUrl}/${_id}`);
+  }
+
 }

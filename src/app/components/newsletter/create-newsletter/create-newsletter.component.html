@@ -1,0 +1,24 @@
+<div class="hero">
+    <div class="card-header">
+        <h3 class="card-title">Newsletter Composer</h3>
+    </div>
+    <div class="content">
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form [formGroup]="newsletterForm" (ngSubmit)="onSubmit()" class="form-filler">
+            <div class="input-div">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" formControlName="title" required />
+            </div>
+            <div class="input-div">
+                <label for="content">Content:</label>
+                <input type="textarea" id="content" name="content"  formControlName="content" required="true" />
+            </div>
+            <div class="input-div">
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author"  formControlName="author" required="true" />
+            </div>
+            <button type="submit">Create Newsletter</button>
+        </form>
+    </div>
+</div>

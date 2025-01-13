@@ -22,7 +22,7 @@ export class LoginComponent {
   loginForm = new FormGroup({
     username: new FormControl('', [Validators.required, Validators.minLength(5)] ),
     password: new FormControl('', [Validators.required, Validators.minLength(4)]),
-    role: new FormControl('student', [Validators.required])
+    role: new FormControl('', [Validators.required])  //edited: student removed from role
   })
   onSubmit(){
     console.log(this.loginForm.value);
