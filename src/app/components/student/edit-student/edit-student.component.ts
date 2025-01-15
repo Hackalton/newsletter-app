@@ -68,7 +68,7 @@ export class EditStudentComponent implements OnInit {
       (response) => {
         console.log('Student updated successfully', response);
         // Navigate to a different route (e.g., back to student list)
-        this.router.navigate(['/students']);
+        this.router.navigate(['/admin-home']);
       },
       (error) => {
         console.error('Error updating student:', error);

@@ -1,1 +1,20 @@
-<p>edit-newsletter works!</p>
+<div class="hero">
+    <div *ngIf="message" class="alert alert-primary" role="alert">
+        Newsletter Updated Successfully!   
+    <span><button on-click="removeMessage()">X</button></span>
+    </div>
+    
+    <form [formGroup]="updateNewsletterForm" class="update-form" (ngSubmit)="saveData()">
+        <div class="formInputs">
+            <div class="mb-3">
+                <label for="titleInput" class="form-label">Title</label>
+                <input type="text" class="form-control" id="titleInput" formControlName="title" value="{{updateNewsletterForm .value.title}}">
+            </div>
+            <div class="mb-3">
+                <label for="contentInput" >Content</label><br>
+                <input type="raw_content" class="content" id="contentInput" formControlName="content" value="{{updateNewsletterForm .value.content}}">
+            </div>
+        </div>
+        <button type="submit" class="update-btn">Update</button>
+    </form>
+</div>

@@ -25,27 +25,27 @@ app.use('', newsletterControlRoutes);
 
 app.post('/api/student/create', student.create);
 app.get('/api/student/retrieve', student.retrieve);
-app.put('/api/student/update', student.update);
+app.put('/api/student/:_id', student.update);
 app.delete('/api/student/:_id', student.delete);
 app.get(`/api/student/:_id`, student.get);
 
 app.post('/api/journalist/create', journalist.create);
 app.get('/api/journalist/retrieve', journalist.retrieve);
-app.put('/api/journalist/update', journalist.update);
+app.put('/api/journalist/:_id', journalist.update);
 app.delete('/api/journalist/:_id', journalist.delete);
 app.get(`/api/journalist/:_id`, student.get);
 
 
 app.get('/api/newsletter/retrieve', newsletter.retrieve);
 app.post('/api/newsletter/create', newsletter.create);
-app.put('/api/newsletter/update', newsletter.update);
+app.put('/api/newsletter/:_id', newsletter.update);
 app.delete('/api/newsletter/:_id', newsletter.delete);
 app.get(`/api/newsletter/:_id`, student.get);
 
 
 app.get('/api/admin/retrieve', admin.retrieve);
 app.post('/api/admin/create', admin.create);
-app.put('/api/admin/update', admin.update);
+app.put('/api/admin/:_id', admin.update);
 app.delete('/api/admin/:_id', admin.delete);
 app.get(`/api/newsletter/:_id`, student.get);
 

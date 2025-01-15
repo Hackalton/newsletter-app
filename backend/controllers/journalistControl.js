@@ -51,12 +51,13 @@ module.exports ={
             })
     },
     delete: (req, res)=>{
-        userModel.deleteOne({_id: req.body._id})
+        userModel.findByIdAndDelete({_id: req.params._id})
             .then(result=>{
+                if(!result) res.json({success: false, result: 'journalist not deleted'});
                 res.json({success: true, result: result})
             })
             .catch(err=>{
-                res.json({success: false, result: err})
+                res.json({success:false, result: err})
             })
     }
 

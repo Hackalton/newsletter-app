@@ -51,7 +51,7 @@ module.exports = {
             })
     },
     delete: (req, res)=>{
-        userModel.findByIdAndDelete({_id: req.body._id})
+        userModel.findByIdAndDelete({_id: req.params._id})
             .then(result=>{
                 if(!result) res.json({success: false, result: 'Student not deleted'});
                 res.json({success: true, result: result})

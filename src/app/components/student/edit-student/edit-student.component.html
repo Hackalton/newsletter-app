@@ -1,11 +1,11 @@
-<p>edit-student works!</p>
-<div>
+
+<div class="hero">
 <div *ngIf="message" class="alert alert-primary" role="alert">
     Student Updated Successfully!   
     <span><button on-click="removeMessage()">X</button></span>
     </div>
     
-    <form [formGroup]="updateStudentForm" (ngSubmit)="saveData()">
+    <form [formGroup]="updateStudentForm" class="update-form" (ngSubmit)="saveData()">
         <div class="mb-3">
             <label for="usernameInput" class="form-label">Username</label>
             <input type="text" class="form-control" id="usernameInput" formControlName="username" value="{{updateStudentForm.value.username}}">
@@ -14,6 +14,6 @@
             <label for="passwordInput" class="form-label">Password</label>
             <input type="text" class="form-control" id="passwordInput" formControlName="password" value="{{updateStudentForm.value.password}}">
         </div>
-        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="submit" onclick="showMessage()" class="btn btn-primary">Update</button>
     </form>
 </div>

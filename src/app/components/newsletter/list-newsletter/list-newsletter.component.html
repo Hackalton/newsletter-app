@@ -4,7 +4,9 @@
             <h2>TITLES</h2>
             <ul *ngFor="let item of allNewsletters">
                 <li>
-                    <span  class="title" (click)="openModal(item)">{{item.title}}</span>
+                    <span  class="title" (click)="openModal(item)">{{item.title}} </span> 
+                    <span style="margin: 5px;"><i class="fa fa-trash" (click)="deleteNewsletter(item._id)"></i></span>
+                    <span style="margin: 5px; width: 1rem"><a routerLink="/editNewsletter/{{item._id}}"><i class="fa fa-edit"></i></a></span>
                 <div class="modal" [ngClass]="{'show': isModalVisible}" (click)="closeModal()">
                     <div class="modal-content" (click)="$event.stopPropagation()">
                     <span class="close" (click)="closeModal()">&times;</span>

@@ -31,7 +31,7 @@ module.exports = {
             });
     },
     get: (req, res)=>{
-        userModel.findById(req.params._id)
+        NewsletterModel.findById(req.params._id)
             .then(newsletter =>{
                 if(!newsletter) return res.json({success: false, result: 'newsletter with this id is not found!'});
                 res.json({success: true, result: newsletter})
@@ -51,7 +51,7 @@ module.exports = {
             })
     },
     delete: (req, res)=>{
-        userModel.findByIdAndDelete({_id: req.body._id})
+        NewsletterModel.findByIdAndDelete({_id: req.params._id})
             .then(result=>{
                 if(!result) res.json({success: false, result: 'Newsletter not deleted'});
                 res.json({success: true, result: result})

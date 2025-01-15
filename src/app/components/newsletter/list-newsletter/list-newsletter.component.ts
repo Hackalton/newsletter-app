@@ -32,7 +32,7 @@ export class ListNewsletterComponent implements OnInit{
         console.log('the single newsletter is: ' + data)
       }))
     }
-     //deleting a student
+     //deleting a newsletter
     deleteNewsletter(id: any){
       this.svc.deleteNewsletter(id).subscribe((data:any)=>{
         console.log(id);
