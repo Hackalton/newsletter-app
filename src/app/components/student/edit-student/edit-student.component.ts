@@ -61,6 +61,7 @@ export class EditStudentComponent implements OnInit {
     const id = this.route.paramMap.subscribe((params)=>{
       let _id = params.get('id');
       this.updatedStudent = {...this.updateStudentForm.value, _id: params.get('id')};
+      this.showMessage();
       
     })
     console.log('the active id is:')
@@ -82,6 +83,8 @@ export class EditStudentComponent implements OnInit {
   }
 
   showMessage() {
-    this.message = true;
+    setTimeout(() => {
+      this.message = true;
+    }, 3000);
   }
 }

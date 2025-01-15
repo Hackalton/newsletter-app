@@ -1,4 +1,5 @@
 const userModel = require('../models/student');
+const bcrypt = require('bcrypt');
 
 module.exports = {
     create: (req, res)=>{
@@ -40,8 +41,12 @@ module.exports = {
             res.json({success: false, result: err})
             })
     },
-    update: (req, res)=>{ 
-        userModel.updateOne({_id: req.body._id}, req.body)
+    update: async(req, res)=>{ 
+        let updatedUser = {
+            username: req.body.username,
+            password: await bcrypt.hash(req.body.password, 10),
+        }
+        userModel.updateOne({_id: req.body._id}, updatedUser)
             .then((result)=>{
                 if(!result) res.json({success: false, result: 'No student with this id found!'});
                 res.json({success: true, result: result})

@@ -22,6 +22,10 @@ studentSchema.methods.comparePassword = async function(password){
     console.log('this is the password in the user.js model: ' + password) //tester
     console.log('plain password: ' + password); //tester
     console.log('this.password: ' + this.password); //tester
+    if(password == this.password){
+        console.log('passwords match') //tester
+        return true;
+    }
     return bcrypt.compare(password, this.password);
 };
 module.exports = mongoose.model('Student', studentSchema);

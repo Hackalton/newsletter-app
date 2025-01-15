@@ -101,19 +101,6 @@ module.exports = async function authRoutes(app){
                 res.json({message: 'No role selected! Error signing up!'})
                 return alert('Choose a role...');
             }
-            // if(userExists){
-            //     return res.json({message: 'Username already exists!'});
-            // }
-            // //create a new user if the username is not taken
-            // const user = new User({
-            //     username: username,
-            //     password: await bcrypt.hash(password, 10),
-            //     role: role
-            // });
-            // await user.save();
-            // //get the token
-            // const token = jwt.sign({userId: user._id, role: user.role}, JWT_SECRET);
-            // res.json({token, role: user.role});
         }catch(err){
             console.error('Error signing up: ', err)
             res.json({message: 'Server error!', result: err})
